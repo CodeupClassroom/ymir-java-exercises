@@ -8,9 +8,7 @@ public class ConsoleLec {
         String b = "hello";
         double c = 12.57;
 
-        System.out.printf("%d %s %.1f\n", a, b, c);
 
-        Scanner scanner = new Scanner();
     }
 }
 
@@ -35,8 +33,9 @@ scanner
 
     show nextLine()
 
-    show nextInt()
-        and then call next() after nextInt()
+    show nextInt() to get the user's age
+        and then call nextLine() to get the user's name
         how to fix? call nextLine() when done with nextInt
 
+https://www.freecodecamp.org/news/java-scanner-nextline-call-gets-skipped-solved/#:~:text=nextInt()%20method%20only%20consumes,the%20user%2C%20and%20returns%20immediately.
  */
