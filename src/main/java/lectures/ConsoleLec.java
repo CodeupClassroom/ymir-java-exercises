@@ -12,24 +12,49 @@ public class ConsoleLec {
 //        System.out.println("Howdy " + myName + " age: " + a + " makes " + c + " bucks per hr.");
 //        System.out.printf("Howdy %s age: %+05d makes %7.1f bucks per hr%n", myName, a, c);
 
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner("42");
+//        input.useDelimiter("\n");
 
         System.out.print("Enter your age: ");
         int age = input.nextInt();
         System.out.println("Your age is " + age);
+//
+//        // get the newline char out of the buffer
+//        // this is stupid
+//        input.nextLine();
+//
+//        System.out.print("Enter your name: ");
+////        aName = input.next();
+//        aName = input.nextLine();
+//        System.out.println("Your name is " + aName);
+//
+////        aName = input.next();
+////        System.out.println("Your OTHER name is " + aName);
 
-        // get the newline char out of the buffer
-        // this is stupid
-        input.nextLine();
+//        String s = input.nextLine();
+//
+//        double w = Double.parseDouble(s);
+//        s = input.nextLine();
+//
+//        double h = Double.parseDouble(s);
 
-        System.out.print("Enter your name: ");
-//        aName = input.next();
-        aName = input.nextLine();
-        System.out.println("Your name is " + aName);
+        input.close();
+        input = new Scanner(System.in);
 
-//        aName = input.next();
-//        System.out.println("Your OTHER name is " + aName);
+        System.out.print("Enter room length (double): ");
+        double length = input.nextDouble();
+        System.out.print("Enter room width (double): ");
+        double width = input.nextDouble();
+        System.out.print("Enter room height (double): ");
+        double height = input.nextDouble();
 
+        double area = length * width;
+        double volume = area * height;
+        double perimeter = (2 * length) + (2 * width);
+        System.out.printf("Area of room: %f\n" +
+                        "Perimeter of room: %f\n" +
+                        "Volume of room: %f\n",
+                area, perimeter, volume);
 
         input.close();
     }
