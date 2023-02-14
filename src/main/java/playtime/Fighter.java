@@ -7,6 +7,9 @@ public class Fighter {
 
     private int strength;
 
+//    private String weaponName;
+//    private int weaponDamage;
+
     private Weapon currentWeapon;
 
     public Fighter(String name) {
@@ -20,6 +23,16 @@ public class Fighter {
         int otherHealth = otherFighter.getHealth();
         otherHealth -= (strength + currentWeapon.getDamage());
         otherFighter.setHealth(otherHealth);
+    }
+
+    @Override
+    public String toString() {
+        return "Fighter{" +
+                "health=" + health +
+                ", name='" + name + '\'' +
+                ", strength=" + strength +
+                ", currentWeapon=" + currentWeapon +
+                '}';
     }
 
     // accessors
