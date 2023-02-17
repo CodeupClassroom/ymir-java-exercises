@@ -1,10 +1,16 @@
 package lectures;
 
+import docrob.ServerNameGenerator;
 import playtime.Fighter;
 import playtime.Ninja;
 
 public class PolyLec {
     public static void main(String[] args) {
+
+//        String [] stringArray = ServerNameGenerator.nouns;
+//        String fighterName = ServerNameGenerator.getRandomString();
+//        Fighter f1 = new Fighter(fighterName);
+//        System.out.println(f1);
 
         // first add a taunt method to fighter
         Fighter bob = new Fighter("Bob");

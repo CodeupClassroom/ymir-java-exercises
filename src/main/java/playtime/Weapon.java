@@ -9,6 +9,10 @@ public class Weapon {
         this.damage = damage;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 
     // accessors
 

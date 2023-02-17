@@ -1,5 +1,8 @@
 package playtime;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Fighter {
     private final int MAX_HEALTH = 100;
 
@@ -14,21 +17,40 @@ public class Fighter {
 
     private Weapon currentWeapon;
 
+    // a fighter can have many weapons
+    private ArrayList<Weapon> weapons;
+
     public Fighter() {
         this.name = "Unknown fighter";
         health = MAX_HEALTH;
         strength = 10;
+        weapons = new ArrayList<>();
     }
 
     public Fighter(String name) {
         this.name = name;
         health = 100;
         strength = 10;
+        weapons = new ArrayList<>();
     }
 
     public Fighter(String name, int strength) {
         this.name = name;
         this.strength = strength;
+        weapons = new ArrayList<>();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fighter fighter = (Fighter) o;
+        return Objects.equals(name, fighter.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
     // the fighter this is called on hits the otherFighter
@@ -43,13 +65,22 @@ public class Fighter {
         System.out.println("Your mama wears combat boots!");
     }
 
+    public void addWeapon(Weapon weapon) {
+        weapons.add(weapon);
+    }
+
+    public Weapon getWeapon(int index) {
+        return weapons.get(index);
+    }
+
+
     @Override
     public String toString() {
         return "Fighter{" +
                 "health=" + health +
                 ", name='" + name + '\'' +
                 ", strength=" + strength +
-                ", currentWeapon=" + currentWeapon +
+                ", weapons=" + weapons +
                 '}';
     }
 
