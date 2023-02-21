@@ -24,6 +24,9 @@ public class Person {
 
     public Person(String firstName) {
         this(firstName, "", "");
+//        if(firstName.equals("bob")) {
+//            throw new PersonException("bob is not allowed!");
+//        }
         System.out.println("1 arg constructor called");
 
     }
