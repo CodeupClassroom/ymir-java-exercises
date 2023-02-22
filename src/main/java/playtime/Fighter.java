@@ -40,6 +40,19 @@ public class Fighter {
         weapons = new ArrayList<>();
     }
 
+    public String toFileString() {
+        return String.format("%s,%d,%d", name, health, strength);
+    }
+
+    public static Fighter fromFileString(String fileString) {
+        // file format is name,health,strength
+        String [] pieces = fileString.split(",");
+        Fighter fighter = new Fighter(pieces[0]);
+        fighter.setHealth(Integer.parseInt(pieces[1]));
+        fighter.setStrength(Integer.parseInt(pieces[2]));
+        return fighter;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
