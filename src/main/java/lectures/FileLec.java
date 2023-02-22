@@ -85,6 +85,9 @@ public class FileLec {
             Fighter cloneOfBob = Fighter.fromFileString(fileStrings.get(0));
             System.out.println("cloneOfBob = " + cloneOfBob);
 
+            for (String fileString : fileStrings) {
+                Fighter aFighter = Fighter.fromFileString(fileString);
+            }
 //            System.out.println(fileStrings.size());
 //            System.out.println(fileStrings);
         } catch (IOException e) {
