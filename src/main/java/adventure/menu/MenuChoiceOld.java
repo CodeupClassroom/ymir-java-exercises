@@ -1,4 +1,4 @@
-package adventure.screens;
+package adventure.menu;
 
 public enum MenuChoiceOld {
     Exit, CreateHero, ViewHero, LoadGame, SaveGame;
