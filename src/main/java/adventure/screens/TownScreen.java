@@ -12,7 +12,7 @@ public class TownScreen extends Screen {
         menu.addChoice("Run Away!!", Menu.EXIT_SCREEN_ACTION);
         menu.addChoice("View Hero", viewHero);
 //        menu.addChoice("Go Shopping", null);
-        menu.addChoice("Enter ze Dungeon", null);
+        menu.addChoice("Enter ze Dungeon", enterDungeon);
     }
 
     @Override
@@ -39,6 +39,10 @@ public class TownScreen extends Screen {
 
     private MenuAction viewHero = () -> {
         Main.getHero().printMe();
+    };
+
+    private MenuAction enterDungeon = () -> {
+        ScreenBuilder.buildScreen(ScreenType.DungeonEntrance).go();
     };
 
 }

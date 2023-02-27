@@ -5,10 +5,16 @@ public class Hero {
     private int health;
     private int attackStrength;
 
+    private int defenseStrength;
+
+    private int gold;
+
     public Hero(String name) {
         this.name = name;
         health = 100;
         attackStrength = 10;
+        gold = 0;
+        defenseStrength = 10;
     }
 
     @Override
@@ -18,10 +24,13 @@ public class Hero {
 
     public void printMe() {
         System.out.printf("""
-                Hero
-                Name: %s
-                Health: %d
-                """, name, health);
+                
+                %s the Hero
+                \tHealth: %d
+                \tAttack: %d
+                \tDefense: %d
+                \tGold: %d
+                """, name, health, attackStrength, defenseStrength, gold);
     }
 
     // accessors
@@ -48,5 +57,21 @@ public class Hero {
 
     public void setAttackStrength(int attackStrength) {
         this.attackStrength = attackStrength;
+    }
+
+    public int getDefenseStrength() {
+        return defenseStrength;
+    }
+
+    public void setDefenseStrength(int defenseStrength) {
+        this.defenseStrength = defenseStrength;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
     }
 }

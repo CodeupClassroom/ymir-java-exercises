@@ -11,6 +11,7 @@ public class ScreenBuilder {
             case Welcome -> new WelcomeScreen();
             case Main -> new MainScreen();
             case Town -> getCachedScreen(screenType, new TownScreen());
+            case DungeonEntrance -> getCachedScreen(screenType, new DungeonEntrance());
             default -> new ErrorScreen();
         };
     }
