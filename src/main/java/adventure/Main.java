@@ -1,64 +1,38 @@
 package adventure;
 
+import adventure.screens.Screen;
+import adventure.screens.ScreenBuilder;
+import adventure.screens.ScreenType;
 import docrob.util.Input;
 
 public class Main {
-    private static final Input input = new Input();
+    public static final Input INPUT = new Input();
 
-    private static Hero theHero = null;
+    // GAME INFO     ****************
+    private static Hero hero = null;
+    // END GAME INFO ****************
 
     public static void main(String[] args) {
         // show welcome
-        printWelcome();
+        Screen screen = ScreenBuilder.buildScreen(ScreenType.Welcome);
+        screen.show();
+        screen.handleUser();
 
-        // loop until user quits
-        while(true) {
-            // print menu
-            printMenu();
+        // main screen
+        screen = ScreenBuilder.buildScreen(ScreenType.Main);
+        screen.show();
+        screen.handleUser();
 
-            MenuChoice choice = MenuChoice.fromInt(input.getInt(0, 5, "Enter your choice: "));
-
-            // process user's choice
-            doChoice(choice);
-
-            // if user quits then break
-            if(MenuChoice.Exit.equals(choice)) {
-                break;
-            }
-        }
-
+        // when the main screen returns from handleUser, the user is ready to quit
         System.out.println("Bye");
 
     }
 
-    private static void doChoice(MenuChoice choice) {
-        switch (choice) {
-            case CreateHero -> theHero = createHero();
-            case ViewHero -> viewHero();
-        }
-    }
-
-    private static void viewHero() {
-        System.out.println(theHero);
-    }
-
-    private static Hero createHero() {
-        String name = input.getString("Enter your hero's name: ");
-        Hero hero = new Hero(name);
+    public static Hero getHero() {
         return hero;
     }
 
-    private static void printWelcome() {
-        System.out.println("Welcome to Ga'eme.");
-    }
-
-    private static void printMenu() {
-        System.out.println("""
-                0 - exit
-                1 - create character
-                2 - load character
-                3 - view your character
-                4 - start the Ga'eme
-                """);
+    public static void setHero(Hero theHero) {
+        Main.hero = theHero;
     }
 }
