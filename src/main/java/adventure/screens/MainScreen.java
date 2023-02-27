@@ -21,7 +21,7 @@ public class MainScreen extends Screen {
     };
 
     private MenuAction viewHero = () -> {
-        System.out.println(Main.getHero());
+        Main.getHero().printMe();
     };
 
     private MenuAction startAdventure = () -> {

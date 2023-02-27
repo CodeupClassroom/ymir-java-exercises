@@ -26,6 +26,7 @@ public abstract class Screen {
 
     // show() is responsible for displaying the screen info
     public void show() {
+        System.out.println();
         for (MenuChoice choice : menu.getChoices()) {
             System.out.println(choice);
         }

@@ -16,6 +16,14 @@ public class Hero {
         return "Hero " + name + ", health: " + health;
     }
 
+    public void printMe() {
+        System.out.printf("""
+                Hero
+                Name: %s
+                Health: %d
+                """, name, health);
+    }
+
     // accessors
 
     public String getName() {

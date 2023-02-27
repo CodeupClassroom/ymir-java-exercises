@@ -15,15 +15,14 @@ public class Main {
     public static void main(String[] args) {
         // show welcome
         Screen screen = ScreenBuilder.buildScreen(ScreenType.Welcome);
-        screen.show();
-        screen.handleUser();
+        screen.go();
+        // when welcome screen returns, proceed to the main screen
 
         // main screen
         screen = ScreenBuilder.buildScreen(ScreenType.Main);
-        screen.show();
-        screen.handleUser();
+        screen.go();
 
-        // when the main screen returns from handleUser, the user is ready to quit
+        // when the main screen returns, the user is ready to quit
         System.out.println("Bye");
 
     }
