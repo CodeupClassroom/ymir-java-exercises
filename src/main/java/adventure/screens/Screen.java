@@ -1,6 +1,7 @@
 package adventure.screens;
 
 import adventure.Main;
+import adventure.menu.FlowAction;
 import adventure.menu.Menu;
 import adventure.menu.MenuChoice;
 
@@ -34,13 +35,15 @@ public abstract class Screen {
 
     // handleUser is responsible for responding to user interaction
     public void handleUser() {
-        // loop until user quits
+        MenuChoice choice = null;
+
+        // loop while user does not choose an action that changes screen flow
         while(true) {
 
-            MenuChoice choice = menu.getChoiceFromUser(Main.INPUT);
+            choice = menu.getChoiceFromUser(Main.INPUT);
 
             // if user quits then break
-            if(choice.getAction() == Menu.EXIT_SCREEN_ACTION) {
+            if(choice.getAction() instanceof FlowAction) {
                 break;
             }
 
@@ -52,6 +55,8 @@ public abstract class Screen {
             }
         }
 
+        // perform the flow action
+        choice.doAction();
     }
 
     public void handleUser(boolean showMenuEachIteration) {

@@ -2,6 +2,7 @@ package adventure.screens;
 
 import adventure.Hero;
 import adventure.Main;
+import adventure.menu.FlowAction;
 import adventure.menu.Menu;
 import adventure.menu.MenuAction;
 
@@ -24,7 +25,7 @@ public class MainScreen extends Screen {
         Main.getHero().printMe();
     };
 
-    private MenuAction startAdventure = () -> {
+    private FlowAction startAdventure = () -> {
         ScreenBuilder.buildScreen(ScreenType.Town).go();
     };
 

@@ -10,7 +10,7 @@ public class Menu {
 
     private ArrayList<MenuChoice> choices;
 
-    public static final MenuAction EXIT_SCREEN_ACTION = () -> {
+    public static final FlowAction EXIT_SCREEN_ACTION = () -> {
         // empty action function that just indicates the user selected an choice to return the current screen to the caller
     };
 
