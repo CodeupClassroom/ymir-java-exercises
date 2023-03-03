@@ -2,6 +2,7 @@ package adventure;
 
 import adventure.screens.Screen;
 import adventure.screens.ScreenBuilder;
+import adventure.screens.ScreenManager;
 import adventure.screens.ScreenType;
 import docrob.util.Input;
 
@@ -15,14 +16,14 @@ public class Main {
     public static void main(String[] args) {
         // show welcome
         Screen screen = ScreenBuilder.buildScreen(ScreenType.Welcome);
-        screen.go();
-        // when welcome screen returns, proceed to the main screen
 
-        // main screen
-        screen = ScreenBuilder.buildScreen(ScreenType.Main);
-        screen.go();
+        // screen manager is now the main screen loop
+        // when a screen fully exits, the screen manager loads the next screen
+        ScreenManager.setNextScreen(screen);
+        ScreenManager.start();
 
-        // when the main screen returns, the user is ready to quit
+        // when the screen manager returns, the app is ready to quit
+        // i.e., the user has exited from the main screen
         System.out.println("Bye");
 
     }

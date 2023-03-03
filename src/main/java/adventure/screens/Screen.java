@@ -15,14 +15,14 @@ public abstract class Screen {
     }
 
     // easy to use function that both shows and handles
-    public void go() {
+    public MenuChoice go() {
         show();
-        handleUser();
+        return handleUser();
     }
 
-    public void go(boolean showMenuEachIteration) {
+    public MenuChoice go(boolean showMenuEachIteration) {
         show();
-        handleUser(showMenuEachIteration);
+        return handleUser(showMenuEachIteration);
     }
 
     // show() is responsible for displaying the screen info
@@ -34,33 +34,32 @@ public abstract class Screen {
     }
 
     // handleUser is responsible for responding to user interaction
-    public void handleUser() {
-        MenuChoice choice = null;
+    public MenuChoice handleUser() {
+        MenuChoice choice;
 
         // loop while user does not choose an action that changes screen flow
         while(true) {
 
             choice = menu.getChoiceFromUser(Main.INPUT);
 
+            // process user's choice
+            choice.doAction();
+
             // if user quits then break
             if(choice.getAction() instanceof FlowAction) {
                 break;
             }
-
-            // process user's choice
-            choice.doAction();
 
             if(showMenuEachIteration) {
                 show();
             }
         }
 
-        // perform the flow action
-        choice.doAction();
+        return choice;
     }
 
-    public void handleUser(boolean showMenuEachIteration) {
+    public MenuChoice handleUser(boolean showMenuEachIteration) {
         this.showMenuEachIteration = showMenuEachIteration;
-        handleUser();
+        return handleUser();
     }
 }

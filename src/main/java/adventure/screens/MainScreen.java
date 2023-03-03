@@ -10,14 +10,20 @@ public class MainScreen extends Screen {
 
     public MainScreen() {
         super();
-        menu.addChoice("Exit", Menu.EXIT_SCREEN_ACTION);
+        menu.addChoice("Exit", ScreenManager.EXIT_APPLICATION_ACTION);
         menu.addChoice("Create Hero", createHero);
         menu.addChoice("View Hero", viewHero);
         menu.addChoice("Start the adventure", startAdventure);
     }
 
+    @Override
+    public void show() {
+        System.out.println("\nMain Menu");
+        super.show();
+    }
+
     private MenuAction createHero = () -> {
-        String name = Main.INPUT.getString("Enter your hero's name: ");
+        String name = Main.INPUT.getString("\nEnter your hero's name: ");
         Main.setHero(new Hero(name));
     };
 
@@ -26,7 +32,7 @@ public class MainScreen extends Screen {
     };
 
     private FlowAction startAdventure = () -> {
-        ScreenBuilder.buildScreen(ScreenType.Town).go();
+        ScreenManager.setNextScreen(ScreenBuilder.buildScreen(ScreenType.Town));
     };
 
 }

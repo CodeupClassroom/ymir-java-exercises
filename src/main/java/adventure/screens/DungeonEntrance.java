@@ -9,7 +9,7 @@ public class DungeonEntrance extends Screen {
     public DungeonEntrance() {
         super();
         menu.addChoice("Retreat back to town!!", () -> {
-            ScreenBuilder.buildScreen(ScreenType.Town).go();
+            ScreenManager.setNextScreen(ScreenBuilder.buildScreen(ScreenType.Town));
         });
         menu.addChoice("View Hero", viewHero);
         menu.addChoice("Punch generic monster", punchGenericMonster);

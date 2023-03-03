@@ -33,6 +33,6 @@ public class Student {
         for (int grade: this.grades) {
             sum += grade;
         }
-        return sum / this.grades.size() ;
+        return sum / this.grades.size();
     }
 }

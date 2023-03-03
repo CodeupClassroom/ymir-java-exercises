@@ -2,7 +2,6 @@ package adventure.screens;
 
 import adventure.Main;
 import adventure.menu.FlowAction;
-import adventure.menu.Menu;
 import adventure.menu.MenuAction;
 import adventure.misc.ConsoleColors;
 
@@ -10,13 +9,11 @@ public class TownScreen extends Screen {
 
     public TownScreen() {
         super();
-        menu.addChoice("Run Away!!", () -> {
-            ScreenBuilder.buildScreen(ScreenType.Main).go();
-        });
+        menu.addChoice("Run Away!!", runAway);
         menu.addChoice("View Hero", viewHero);
 //        menu.addChoice("Go Shopping", null);
         menu.addChoice("Enter ze Dungeon", () -> {
-            ScreenBuilder.buildScreen(ScreenType.DungeonEntrance).go();
+            ScreenManager.setNextScreen(ScreenBuilder.buildScreen(ScreenType.DungeonEntrance));
         });
     }
 
@@ -46,4 +43,7 @@ public class TownScreen extends Screen {
         Main.getHero().printMe();
     };
 
+    private FlowAction runAway = () -> {
+        ScreenManager.setNextScreen(ScreenBuilder.buildScreen(ScreenType.Main));
+    };
 }

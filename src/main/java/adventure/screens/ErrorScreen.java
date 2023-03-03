@@ -1,5 +1,7 @@
 package adventure.screens;
 
+import adventure.menu.MenuChoice;
+
 public class ErrorScreen extends Screen {
     @Override
     public void show() {
@@ -7,7 +9,7 @@ public class ErrorScreen extends Screen {
     }
 
     @Override
-    public void handleUser() {
-
+    public MenuChoice handleUser() {
+        return new MenuChoice("", ScreenManager.NO_ACTION);
     }
 }
