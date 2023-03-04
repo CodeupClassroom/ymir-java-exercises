@@ -1,23 +1,20 @@
 package adventure.screens;
 
 import adventure.Main;
-import adventure.menu.Menu;
 import adventure.menu.MenuAction;
 import adventure.misc.ConsoleColors;
 
 public class DungeonEntrance extends Screen {
     public DungeonEntrance() {
         super();
-        menu.addChoice("Retreat back to town!!", () -> {
-            ScreenManager.setNextScreen(ScreenBuilder.buildScreen(ScreenType.Town));
-        });
+        menu.addChoice("Retreat back to town!!", ScreenBuilder.buildScreen(new TownScreen()));
         menu.addChoice("View Hero", viewHero);
         menu.addChoice("Punch generic monster", punchGenericMonster);
     }
 
     @Override
     public void show() {
-        System.out.printf("""
+        System.out.print("""
         
         You are in the dungeon entrance.
         """);

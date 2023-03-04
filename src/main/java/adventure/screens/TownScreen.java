@@ -9,12 +9,10 @@ public class TownScreen extends Screen {
 
     public TownScreen() {
         super();
-        menu.addChoice("Run Away!!", runAway);
+        menu.addChoice("Run Away!!", ScreenBuilder.buildScreen(new MainScreen()));
         menu.addChoice("View Hero", viewHero);
 //        menu.addChoice("Go Shopping", null);
-        menu.addChoice("Enter ze Dungeon", () -> {
-            ScreenManager.setNextScreen(ScreenBuilder.buildScreen(ScreenType.DungeonEntrance));
-        });
+        menu.addChoice("Enter ze Dungeon", ScreenBuilder.buildScreen(new DungeonEntrance()));
     }
 
     @Override
@@ -43,7 +41,4 @@ public class TownScreen extends Screen {
         Main.getHero().printMe();
     };
 
-    private FlowAction runAway = () -> {
-        ScreenManager.setNextScreen(ScreenBuilder.buildScreen(ScreenType.Main));
-    };
 }

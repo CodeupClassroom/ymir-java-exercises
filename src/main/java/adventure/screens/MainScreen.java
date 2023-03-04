@@ -2,8 +2,6 @@ package adventure.screens;
 
 import adventure.Hero;
 import adventure.Main;
-import adventure.menu.FlowAction;
-import adventure.menu.Menu;
 import adventure.menu.MenuAction;
 
 public class MainScreen extends Screen {
@@ -13,7 +11,7 @@ public class MainScreen extends Screen {
         menu.addChoice("Exit", ScreenManager.EXIT_APPLICATION_ACTION);
         menu.addChoice("Create Hero", createHero);
         menu.addChoice("View Hero", viewHero);
-        menu.addChoice("Start the adventure", startAdventure);
+        menu.addChoice("Start the adventure", ScreenBuilder.buildScreen(new TownScreen()));
     }
 
     @Override
@@ -29,10 +27,6 @@ public class MainScreen extends Screen {
 
     private MenuAction viewHero = () -> {
         Main.getHero().printMe();
-    };
-
-    private FlowAction startAdventure = () -> {
-        ScreenManager.setNextScreen(ScreenBuilder.buildScreen(ScreenType.Town));
     };
 
 }

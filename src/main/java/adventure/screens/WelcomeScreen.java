@@ -20,9 +20,10 @@ public class WelcomeScreen extends Screen {
 
     @Override
     public MenuChoice handleUser() {
-        String stuff = Main.INPUT.getString();
+        // wait for user to press enter
+        Main.INPUT.getString();
 
-        ScreenManager.setNextScreen(ScreenBuilder.buildScreen(ScreenType.Main));
+        ScreenBuilder.buildScreen(new MainScreen());
         return new MenuChoice("", ScreenManager.NO_ACTION);
     }
 }
