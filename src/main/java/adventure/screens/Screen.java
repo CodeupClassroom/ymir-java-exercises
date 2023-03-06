@@ -14,6 +14,10 @@ public abstract class Screen {
         menu = new Menu();
     }
 
+    public void setupMenu() {
+        System.out.println("screen setup for " + this.getClass().getSimpleName());
+    }
+
     // easy to use function that both shows and handles
     public MenuChoice go() {
         show();

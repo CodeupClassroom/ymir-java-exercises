@@ -23,7 +23,8 @@ public class WelcomeScreen extends Screen {
         // wait for user to press enter
         Main.INPUT.getString();
 
-        ScreenBuilder.buildScreen(new MainScreen());
-        return new MenuChoice("", ScreenManager.NO_ACTION);
+        MenuChoice choice = new MenuChoice("", ScreenBuilder.buildScreen(new MainScreen()));
+        choice.doAction();
+        return choice;
     }
 }

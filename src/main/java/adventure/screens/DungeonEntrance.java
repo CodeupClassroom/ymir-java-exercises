@@ -7,6 +7,11 @@ import adventure.misc.ConsoleColors;
 public class DungeonEntrance extends Screen {
     public DungeonEntrance() {
         super();
+    }
+
+    @Override
+    public void setupMenu() {
+        super.setupMenu();
         menu.addChoice("Retreat back to town!!", ScreenBuilder.buildScreen(new TownScreen()));
         menu.addChoice("View Hero", viewHero);
         menu.addChoice("Punch generic monster", punchGenericMonster);

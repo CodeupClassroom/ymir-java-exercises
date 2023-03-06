@@ -8,6 +8,12 @@ public class MainScreen extends Screen {
 
     public MainScreen() {
         super();
+    }
+
+    @Override
+    public void setupMenu() {
+        super.setupMenu();
+        System.out.println("main screen setup");
         menu.addChoice("Exit", ScreenManager.EXIT_APPLICATION_ACTION);
         menu.addChoice("Create Hero", createHero);
         menu.addChoice("View Hero", viewHero);

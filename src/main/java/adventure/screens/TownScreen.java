@@ -9,6 +9,11 @@ public class TownScreen extends Screen {
 
     public TownScreen() {
         super();
+    }
+
+    @Override
+    public void setupMenu() {
+        super.setupMenu();
         menu.addChoice("Run Away!!", ScreenBuilder.buildScreen(new MainScreen()));
         menu.addChoice("View Hero", viewHero);
 //        menu.addChoice("Go Shopping", null);

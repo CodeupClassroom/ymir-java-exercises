@@ -12,8 +12,9 @@ public class Main {
 
     public static void main(String[] args) {
         // show welcome
-        ScreenBuilder.buildScreen(new WelcomeScreen());
-
+        Screen screen = new WelcomeScreen();
+        ScreenBuilder.buildScreen(screen);
+        ScreenManager.setNextScreen(screen);
         // screen manager is now the main screen loop
         // when a screen fully exits, the screen manager loads the next screen
         ScreenManager.start();
