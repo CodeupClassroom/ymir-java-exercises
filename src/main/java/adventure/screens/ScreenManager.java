@@ -16,10 +16,6 @@ public class ScreenManager {
     };
 
     public static void start() {
-        if(nextScreen == null) {
-            throw new ScreenException("Next screen has not been set!");
-        }
-
         MenuChoice choice;
         do {
             if(nextScreen == null) {
