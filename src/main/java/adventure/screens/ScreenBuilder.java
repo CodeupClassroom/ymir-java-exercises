@@ -16,8 +16,10 @@ public class ScreenBuilder {
 
     private static Screen getCachedScreen(Screen screen) {
         String screenClassName = screen.getClass().getSimpleName();
-        if(!screenCache.containsKey(screenClassName)) {
-            screenCache.put(screenClassName, screen);
+        if(!screenCache.containsKey(screenClassName) || screen instanceof NotCacheable) {
+            if(!(screen instanceof NotCacheable)) {
+                screenCache.put(screenClassName, screen);
+            }
             screen.setupMenu();
         }
         return screenCache.get(screenClassName);

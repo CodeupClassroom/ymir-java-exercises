@@ -1,7 +1,6 @@
 package adventure.screens;
 
 import adventure.Main;
-import adventure.menu.FlowAction;
 import adventure.menu.MenuAction;
 import adventure.misc.ConsoleColors;
 
