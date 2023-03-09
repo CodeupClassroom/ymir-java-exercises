@@ -1,7 +1,7 @@
 package adventure;
 
 import adventure.screens.*;
-import docrob.util.Input;
+import util.Input;
 
 public class Main {
     public static final Input INPUT = new Input();

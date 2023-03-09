@@ -1,7 +1,7 @@
 package adventure.menu;
 
 import adventure.Main;
-import docrob.util.Input;
+import util.Input;
 
 import java.util.ArrayList;
 

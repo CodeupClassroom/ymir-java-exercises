@@ -1,4 +1,4 @@
-import docrob.util.Input;
+import util.Input;
 import org.apache.commons.lang3.StringUtils;
 
 public class MavenExercise {

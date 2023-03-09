@@ -1,7 +1,5 @@
 package lectures;
 
-import docrob.util.Input;
-
 public class ExceptionLec {
 
     public static void main(String[] args) {

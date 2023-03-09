@@ -1,6 +1,6 @@
 package lectures;
 
-import docrob.util.Input;
+import util.Input;
 import playtime.Fighter;
 
 import java.util.Arrays;
